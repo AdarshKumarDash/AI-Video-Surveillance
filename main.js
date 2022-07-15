@@ -1,14 +1,29 @@
+status = "";
+video = "";
+
 function preload() {
     video = createVideo("video.mp4");
+    video.hide();
 }
-
 
 function setup() {
     canvas = createCanvas(640, 400);
     canvas.center();
-    video.hide();
 }
 
 function draw() {
     image(video, 0, 0, 640, 400);
+}
+
+function startvideo() {
+    objectDetection = ml5.objectDetector("cocossd", modelLoaded);
+    document.getElementById("status").innerHTML = "Detecting Objects";
+}
+
+function modelLoaded() {
+    console.log("model Loaded");
+    status = true;
+    video.loop();
+    video.speed(1);
+    video.volume(0);
 }

@@ -37,3 +37,7 @@ canvas {
     box-shadow: 0 0 2px 5px grey;
     margin-top: 80px;
 }
+
+#button12:active, #button12:focus {
+    border:1px solid blue !important;
+}
